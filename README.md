@@ -1,1 +1,1 @@
-# FlightSimulatorApp_MVVM
+# FlightSimulator
