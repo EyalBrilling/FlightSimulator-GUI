@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="FlightSimulatorApp.Views.Controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightSimulatorApp.Views"
+               xmlns:Views="clr-namespace:FlightSimulatorApp.Views"
+             mc:Ignorable="d" 
+            
+             d:DesignHeight="220" d:DesignWidth="220">
+
+    <Grid Margin="0,0,-30,-5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+
+        <!--Top rudder-->
+        <TextBlock Text="←rudder→" FontSize="10" HorizontalAlignment="Center" Grid.Column="2" Grid.ColumnSpan="2">
+        </TextBlock>
+
+        <Slider Name="Rudder" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1"
+ Orientation="Horizontal" 
+  Value="{Binding VM_Rudder}" Minimum="-1" Maximum="1" 
+  SmallChange="1" LargeChange="10"
+  TickPlacement="BottomRight" TickFrequency="30"  ValueChanged="Rudder_ValueChanged" Margin="0,0,25,5" />
+        <TextBlock FontSize="8"  HorizontalAlignment="Left"  Grid.Column="3" Text="{Binding ElementName=Rudder, Path=Value,StringFormat=N2 }" Margin="70,0,0,0"></TextBlock>
+        <!--End  rudder-->
+
+
+        <!--left throttle-->
+        <TextBlock Grid.Row="2" Text="←throttle→"  FontSize="10" VerticalAlignment="Top" RenderTransformOrigin="0.133,1.882" Grid.ColumnSpan="2" Margin="-10,39,17,0" Height="18">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="359.639"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+            <TextBlock.LayoutTransform>
+                <RotateTransform Angle="+90"/>
+            </TextBlock.LayoutTransform>
+        </TextBlock>
+
+        <Slider Name="Throttle"  Grid.Row="1" Grid.RowSpan="3"
+ Orientation="Vertical" HorizontalAlignment="Center" 
+   Minimum="0" Maximum="1" Value="{Binding VM_Throttle}"
+  SmallChange="1" LargeChange="10"
+  TickPlacement="BottomRight" TickFrequency="30" ValueChanged="Throttle_ValueChanged" Margin="0,5,0,15" Grid.Column="1" />
+        <TextBlock FontSize="8"     Grid.Column="1" Text="{Binding ElementName=Throttle, Path=Value, StringFormat=N2 }" Height="15" VerticalAlignment="Top"></TextBlock>
+        <!--end throttle-->
+
+
+
+
+
+
+        <Views:Joystick Grid.Column="2" Grid.Row="2"  x:Name="MyJoystick" Loaded="Joystick_Loaded" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Views:Joystick.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.48" ScaleY="0.48"/>
+                    <!--<SkewTransform/>
+                        <RotateTransform/>-->
+                    <!--<TranslateTransform X="-0.5" Y="0.00032"/>-->
+                </TransformGroup>
+            </Views:Joystick.RenderTransform>
+        </Views:Joystick>
+
+
+
+
+        <!--right elevator-->
+        <TextBlock Grid.Row="2" Grid.Column="3" Text="←elevator→" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="77,0,0,0">
+            <TextBlock.LayoutTransform>
+                <RotateTransform Angle="+90"/>
+            </TextBlock.LayoutTransform>
+        </TextBlock>
+        <TextBlock FontSize="8"  HorizontalAlignment="Right" Grid.Row="3"  VerticalAlignment="Center"  Grid.Column="3"  Text="{Binding VM_elevator,StringFormat=N2}" />
+        <!--end elevator-->
+
+        <!--buttom aileron-->
+        <TextBlock Margin="58,169,0,0" Grid.Row="2" Grid.Column="2" Text="←aileron→" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2"/>
+
+        <TextBlock FontSize="8"  HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center"  Text="{Binding VM_ailron,StringFormat=N2}" />
+        <!--end aileron-->
+
+    </Grid>
+</UserControl>

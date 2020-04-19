@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="FlightSimulatorApp.Views.DashboardUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlightSimulatorApp.Views"
+             mc:Ignorable="d" 
+             Background="AliceBlue"
+             d:DesignHeight="235" d:DesignWidth="235">
+
+    <Grid>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+            <Label Content="Dashboard" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center"></Label>
+            <StackPanel Orientation="Horizontal">
+                <Label>Dgree:</Label>
+                <Label x:Name="degree"   Content="{Binding VM_Degree}" FontSize="14" FontWeight="Bold"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Vertical Speed:</Label>
+                <Label x:Name="verticalSpeed"   Content="{Binding VM_VerticalSpeed}" FontSize="14" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Ground Speed:</Label>
+                <Label x:Name="groundSpeed"  Content="{Binding VM_GroundSpeed}" FontSize="14" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Air Speed:</Label>
+                <Label x:Name="airSpeed"   Content="{Binding VM_AirSpeed}" FontSize="14" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Altitue:</Label>
+                <Label x:Name="gpsAltitude" Content="{Binding VM_GpsAltitude}" FontSize="14" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Roll Degree:</Label>
+                <Label x:Name="rollDegree"   Content="{Binding VM_RollDegree}" FontSize="14" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Pitch Degree:</Label>
+                <Label x:Name="pitchDegree"  Content="{Binding VM_PitchDegree}" FontSize="14" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Aaltimeter Altitude:</Label>
+                <Label x:Name="altimeterAltitude"   Content="{Binding VM_AltimeterAltitude}" FontSize="14" FontWeight="Bold" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
